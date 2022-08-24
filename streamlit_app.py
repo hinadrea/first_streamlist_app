@@ -39,6 +39,6 @@ my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 my_data_row1 = my_cur.fetchone()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row2 = my_cur.fetchone()
-streamlit.text("The fruit load list contains:")
-streamlit.text(my_data_row2)
+streamlit.header("The fruit load list contains:")
+streamlit.dataframe(my_data_row2)
 
