@@ -1,11 +1,8 @@
 import streamlit
 import pandas
 import requests
-
-# Don't run anything past here while we troubleshoot
-streamlit.stop
-
 import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title('My parents new healthy diner')
 
@@ -50,6 +47,9 @@ streamlit.dataframe(my_data_rows2)
 streamlit.write("What fruit would you like to add?")
 add_my_fruit = streamlit.text_input('What fruit would you like add','')
 streamlit.write('The user entered ', add_my_fruit)
+
+# Don't run anything past here while we troubleshoot
+streamlit.stop
 
 # This will not work correctly, just go with it for now
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
