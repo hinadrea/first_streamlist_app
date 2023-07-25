@@ -42,9 +42,6 @@ try:
 except URLError as e:
   streamlit.error()
 
-# Don't run anything past here while we troubleshoot
-streamlit.stop
-
 streamlit.write('The user entered ', fruit_choice)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
@@ -81,7 +78,8 @@ streamlit.write('The user entered ', add_my_fruit_normalized)
 # This will not work correctly, just go with it for now
 my_cur.execute("insert into fruit_load_list values (add_my_fruit_normalized)")
 
-
+# Don't run anything past here while we troubleshoot
+#streamlit.stop
 
 
 
